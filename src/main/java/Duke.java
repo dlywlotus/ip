@@ -5,6 +5,9 @@ import java.util.Arrays;
 import java.util.Scanner;
 
 public class Duke {
+    private static enum IDK{
+        MIGHT, USE, THIS, IN, THE, FUTURE
+    }
     private static final int LINE_BREAK_LENGTH = 45;
     private static final ArrayList<Task> taskList = new ArrayList<>();
 
