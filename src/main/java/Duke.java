@@ -15,12 +15,15 @@ public class Duke {
         System.out.print("\n");
     }
 
+    private static void printListSizeString() {
+        System.out.println("Now you have " + taskList.size() + " tasks in the list.");
+    }
+
     private static void addTask(Task task) {
         taskList.add(task);
         System.out.println("Got it. I've added this task:");
         System.out.println("  " + task.toString());
-        System.out.println("Now you have " + taskList.size() + " tasks in the list.");
-        printLineBreak();
+        printListSizeString();
     }
 
     private static void markTask(int taskId) {
@@ -31,16 +34,22 @@ public class Duke {
         task.isDone = true;
         System.out.println("Nice! I've marked this task as done:");
         System.out.printf("  %s\n", task.toString());
-        printLineBreak();
+
     }
 
     private static void printTasks() {
+        if (taskList.isEmpty()) {
+            System.out.println("You have completed all your tasks! :)");
+
+            return;
+        }
+
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < taskList.size(); i++) {
             Task task = taskList.get(i);
             System.out.printf("%d.%s\n", i + 1, task.toString());
         }
-        printLineBreak();
+
     }
 
     private static void printIntro() {
@@ -48,6 +57,17 @@ public class Duke {
         System.out.println("Hello! I'm Alan");
         System.out.println("What can I do for you?");
         printLineBreak();
+    }
+
+    private static void deleteTask(int taskId) {
+        if (taskId > taskList.size() || taskId < 1) {
+            throw new IllegalArgumentException("The task id is invalid!");
+        }
+        Task task = taskList.remove(taskId - 1);
+        System.out.println("Noted. I've removed this task:");
+        System.out.println("  " + task.toString());
+        printListSizeString();
+
     }
 
     public static void main(String[] args) {
@@ -121,7 +141,24 @@ public class Duke {
                             throw new IllegalArgumentException("Please provide the task id!");
                         }
                         markTask(Integer.parseInt(inputWords.get(1)));
-                    } catch (IllegalArgumentException e) {
+
+                    } catch (NumberFormatException e) {
+                        System.out.println("The taskId should be a integer!");
+                    }
+                    catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
+                    break;
+                case "delete":
+                    try {
+                        if (inputWords.size() < 2) {
+                            throw new IllegalArgumentException("Please provide the task id!");
+                        }
+                        deleteTask(Integer.parseInt(inputWords.get(1)));
+                    } catch (NumberFormatException e) {
+                        System.out.println("The taskId should be a integer!");
+                    }
+                    catch (IllegalArgumentException e) {
                         System.out.println(e.getMessage());
                     }
                     break;
@@ -130,12 +167,12 @@ public class Duke {
                     break;
                 case "bye":
                     System.out.println("Bye. Hope to see you again soon!");
-                    printLineBreak();
+
                     return;
                 default:
                     System.out.println("Invalid input. Please try again.");
-                    printLineBreak();
             }
+           printLineBreak();
         }
 
     }

@@ -17,15 +17,24 @@ Now you have 3 tasks in the list.
 Nice! I've marked this task as done:
   [T][X] clean
 ---------------------------------------------
-Invalid input. Please try again.
+The task id is invalid!
 ---------------------------------------------
-Nice! I've marked this task as done:
-  [D][X] read notes (by: Tomorrow)
+The taskId should be a integer!
+---------------------------------------------
+Task description is required!
+---------------------------------------------
+Task description is required!
+---------------------------------------------
+Task description is required!
+---------------------------------------------
+Noted. I've removed this task:
+  [E][ ] meeting (from: Today to: Tomorrow)
+Now you have 2 tasks in the list.
+---------------------------------------------
+The task id is invalid!
 ---------------------------------------------
 Here are the tasks in your list:
 1.[T][X] clean
-2.[D][X] read notes (by: Tomorrow)
-3.[E][ ] meeting (from: Today to: Tomorrow)
+2.[D][ ] read notes (by: Tomorrow)
 ---------------------------------------------
 Bye. Hope to see you again soon!
----------------------------------------------

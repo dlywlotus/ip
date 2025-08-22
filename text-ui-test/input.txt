@@ -2,7 +2,12 @@ todo clean room
 deadline read notes /by Tomorrow
 event meeting /from Today /to Tomorrow
 mark 1
-listasd
-mark 2
+mark 0
+mark aadasd
+todo
+deadline
+event
+delete 3
+delete 3
 list
 bye
