@@ -1,0 +1,8 @@
+todo clean room
+deadline read notes /by Tomorrow
+event meeting /from Today /to Tomorrow
+mark 1
+listasd
+mark 2
+list
+bye

@@ -1,7 +1,7 @@
-public class Deadline extends Task {
+public class Deadline extends Task{
     protected String doneBy;
 
-    public Deadline(String description, String doneBy) {
+    public Deadline(String description, String doneBy) throws EmptyDescriptionError{
         super(description);
         this.doneBy = doneBy;
     }

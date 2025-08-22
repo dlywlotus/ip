@@ -25,7 +25,7 @@ public class Duke {
 
     private static void markTask(int taskId) {
         if (taskId > taskList.size() || taskId < 1) {
-            throw new InvalidParameterException("The task does not exist");
+            throw new IllegalArgumentException("The task id is invalid!");
         }
         Task task = taskList.get(taskId - 1);
         task.isDone = true;
@@ -43,12 +43,16 @@ public class Duke {
         printLineBreak();
     }
 
-    public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+    private static void printIntro() {
         printLineBreak();
         System.out.println("Hello! I'm Alan");
         System.out.println("What can I do for you?");
         printLineBreak();
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        printIntro();
         while(true) {
             int i;
 
@@ -63,41 +67,63 @@ public class Duke {
 
             switch (firstWord) {
                 case "todo":
-                    addTask(new Todo(inputWords.get(1)));
+                    String desc = inputWords.size() >= 2 ? inputWords.get(1) : "";
+                    try {
+                        addTask(new Todo(desc));
+                    } catch (EmptyDescriptionError e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case "deadline":
                     i = 1;
-                    while (!inputWords.get(i).equals("/by")) {
+                    while (i < inputWords.size() && !inputWords.get(i).equals("/by")) {
                         taskDesc.add(inputWords.get(i));
                         i += 1;
                     }
                     for (int j = i + 1; j < inputWords.size(); j++) {
                         doneBy.add(inputWords.get(j));
                     }
-                    addTask(new Deadline(String.join(" ", taskDesc),
-                            String.join(" ", doneBy)));
+                    try {
+                        addTask(new Deadline(String.join(" ", taskDesc),
+                                String.join(" ", doneBy)));
+                    } catch (IllegalArgumentException | EmptyDescriptionError e) {
+                        System.out.println(e.getMessage());
+                    }
+
                     break;
                 case "event":
                     taskDesc = new ArrayList<>();
                     i = 1;
-                    while (!inputWords.get(i).equals("/from")) {
+                    while (i < inputWords.size() && !inputWords.get(i).equals("/from")) {
                         taskDesc.add(inputWords.get(i));
                         i += 1;
                     }
                     i += 1;
-                    while (!inputWords.get(i).equals("/to")) {
+                    while (i < inputWords.size() && !inputWords.get(i).equals("/to")) {
                         from.add(inputWords.get(i));
                         i += 1;
                     }
                     for (int j = i + 1; j < inputWords.size(); j++) {
                         to.add(inputWords.get(j));
                     }
-                    addTask(new Event(String.join(" ", taskDesc),
-                            String.join(" ", from),
-                            String.join(" ", to)));
+                    try {
+                        addTask(new Event(String.join(" ", taskDesc),
+                                String.join(" ", from),
+                                String.join(" ", to)));
+                    } catch (EmptyDescriptionError e) {
+                        System.out.println(e.getMessage());
+                    }
+
                     break;
                 case "mark":
-                    markTask(Integer.parseInt(inputWords.get(1)));
+                    try {
+                        if (inputWords.size() < 2) {
+                            throw new IllegalArgumentException("Please provide the task id!");
+                        }
+                        markTask(Integer.parseInt(inputWords.get(1)));
+                    } catch (IllegalArgumentException e) {
+                        System.out.println(e.getMessage());
+                    }
                     break;
                 case "list":
                     printTasks();
@@ -108,6 +134,7 @@ public class Duke {
                     return;
                 default:
                     System.out.println("Invalid input. Please try again.");
+                    printLineBreak();
             }
         }
 

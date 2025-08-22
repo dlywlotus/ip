@@ -2,7 +2,10 @@ public class Task {
     protected String description;
     protected boolean isDone;
 
-    public Task(String description) {
+    public Task(String description) throws EmptyDescriptionError{
+        if (description.isEmpty()) {
+            throw new EmptyDescriptionError("Task description is required!");
+        }
         this.description = description;
         this.isDone = false;
     }
