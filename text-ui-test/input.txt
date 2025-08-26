@@ -1,13 +1,6 @@
-todo clean room
+todo wash clothes
 deadline read notes /by Tomorrow
-event meeting /from Today /to Tomorrow
-mark 1
-mark 0
-mark aadasd
-todo
-deadline
-event
-delete 3
-delete 3
+delete 1
+event fold clothes /from 2025-12-10 /to 2025-12-12
 list
-bye
+mark 1
