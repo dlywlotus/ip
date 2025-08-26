@@ -1,4 +1,4 @@
-package com.alanthechatbot;
+package com.alanthechatbot.storage;
 
 import java.io.File;
 import java.io.FileWriter;
