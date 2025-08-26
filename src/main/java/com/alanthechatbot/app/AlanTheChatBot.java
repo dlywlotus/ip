@@ -1,5 +1,6 @@
 package com.alanthechatbot.app;
 
+import com.alanthechatbot.Storage;
 import com.alanthechatbot.exceptions.EmptyDescriptionException;
 import com.alanthechatbot.exceptions.InputParsingException;
 import com.alanthechatbot.exceptions.InvalidActionTypeException;
@@ -11,12 +12,8 @@ import com.alanthechatbot.task.TaskList;
 import com.alanthechatbot.task.Todo;
 import com.alanthechatbot.utils.PrintUtils;
 
-import java.io.File;
-import java.io.FileWriter;
+import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
@@ -58,21 +55,14 @@ public class AlanTheChatBot {
                     case "invalid input":
                         throw new InvalidActionTypeException("Invalid input. Please try again.");
                 }
-                String home = System.getProperty("user.home");
-                Path filePath = Paths.get(home, "AlanTheChatBot", "data.txt");
-                if (!Files.exists(filePath)) {
-                    Files.createDirectories(filePath.getParent());
-                    Files.createFile(filePath);
-                } else {
-                    if (canWrite && !parsed.getActionType().equals("list") &&
-                            !parsed.getActionType().equals("bye")) {
-                        writeToFile(filePath, input + "\n");
-                    }
+                if (canWrite && !parsed.getActionType().equals("list") &&
+                        !parsed.getActionType().equals("bye")) {
+                    Storage.writeToFile(input + "\n");
                 }
             } catch (DateTimeParseException e) {
                 System.out.println("Please follow the format YYYY-MM-DD for dates!");
-            } catch (EmptyDescriptionException | IOException
-                     | InvalidActionTypeException | InputParsingException e) {
+            } catch (EmptyDescriptionException | InvalidActionTypeException
+                     | InputParsingException e) {
                 System.out.println(e.getMessage());
             }
             if (canPrint) {
@@ -81,39 +71,25 @@ public class AlanTheChatBot {
         }
     }
 
-    private static void writeToFile(Path filePath, String line) {
-        try {
-            FileWriter fw = new FileWriter(filePath.toString(), true);
-            fw.write(line);
-            fw.close();
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
-        }
-    }
-
     private static void retrieveTasks() {
-        String home = System.getProperty("user.home");
-        Path filePath = Paths.get(home, "AlanTheChatBot", "data.txt");
+        //read from file
         try {
-            if (!Files.exists(filePath)) {
-                System.out.println("file does not exists - creating new file");
-                Files.createDirectories(filePath.getParent());
-                Files.createFile(filePath);
-            } else {
-                //read from file
-                File logFile = new File(filePath.toString());
-                Scanner fileScanner = new Scanner(logFile);
-                processInputs(fileScanner, false, false);
-            }
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+            Scanner fileScanner = new Scanner(Storage.getFile());
+            processInputs(fileScanner, false, false);
+        } catch (FileNotFoundException e) {
+            System.out.println("Storage has not been initialized!");
         }
     }
 
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-        PrintUtils.printIntro();
-        retrieveTasks();
-        processInputs(scanner, true, true);
+        try {
+            Scanner scanner = new Scanner(System.in);
+            PrintUtils.printIntro();
+            Storage.init();
+            retrieveTasks();
+            processInputs(scanner, true, true);
+        } catch (IOException e) {
+            System.out.println(e.getMessage());
+        }
     }
 }
