@@ -3,10 +3,14 @@ package com.alanthechatbot.task;
 import java.util.ArrayList;
 
 public class TaskList {
-    private static final ArrayList<Task> taskList = new ArrayList<>();
+    private final ArrayList<Task> taskList = new ArrayList<>();
 
     private void printListSizeString() {
         System.out.println("Now you have " + taskList.size() + " tasks in the list.");
+    }
+
+    public int size() {
+        return taskList.size();
     }
 
     public void addTask(Task task, boolean canPrint) {
