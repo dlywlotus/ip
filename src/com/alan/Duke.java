@@ -17,6 +17,13 @@ public class Duke {
     private static final int LINE_BREAK_LENGTH = 45;
     private static final ArrayList<Task> taskList = new ArrayList<>();
 
+    private static void printLineBreak() {
+        for (int i = 0; i < LINE_BREAK_LENGTH; i++) {
+            System.out.print('-');
+        }
+        System.out.print("\n");
+    }
+
     private static void printListSizeString() {
         System.out.println("Now you have " + taskList.size() + " tasks in the list.");
     }
