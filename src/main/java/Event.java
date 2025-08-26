@@ -1,16 +1,24 @@
-public class Event extends Task {
-    protected String from;
-    protected String to;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeParseException;
+import java.util.Locale;
 
-    public Event(String description, String from, String to) throws EmptyDescriptionError {
+public class Event extends Task {
+    protected LocalDate from;
+    protected LocalDate to;
+
+    public Event(String description, String from, String to) throws EmptyDescriptionError, DateTimeParseException {
         super(description);
-        this.from = from;
-        this.to = to;
+        this.from = LocalDate.parse(from);
+        this.to = LocalDate.parse(to);
     }
 
     @Override
     public String toString() {
-        return "[E]" + super.getStatusIcon() + " " + this.description + " (from: " + from + " to: "
-                + to + ")";
+        return "[E]" + super.getStatusIcon() + " " + this.description + " (from: "
+                + from.format(DateTimeFormatter.ofPattern("dd MMMM uuuu", Locale.ENGLISH))
+                + " to: "
+                + to.format(DateTimeFormatter.ofPattern("dd MMMM uuuu", Locale.ENGLISH))
+                + ")";
     }
 }

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.time.format.DateTimeParseException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Scanner;
@@ -166,6 +167,8 @@ public class Duke {
                 }
             } catch (NumberFormatException e) {
                 System.out.println("The task id should be an integer");
+            } catch (DateTimeParseException e) {
+                System.out.println("Please follow the format YYYY-MM-DD for dates!");
             } catch (EmptyDescriptionError | IllegalArgumentException
                      | IOException | InvalidActionType e) {
                 System.out.println(e.getMessage());
