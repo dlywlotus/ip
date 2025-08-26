@@ -1,10 +1,14 @@
+package com.alanthechatbot.task;
+
+import com.alanthechatbot.exceptions.EmptyDescriptionException;
+
 public class Task {
     protected String description;
     protected boolean isDone;
 
-    public Task(String description) throws EmptyDescriptionError{
+    public Task(String description) throws EmptyDescriptionException {
         if (description.isEmpty()) {
-            throw new EmptyDescriptionError("Task description is required!");
+            throw new EmptyDescriptionException("com.alanthechatbot.task.Task description is required!");
         }
         this.description = description;
         this.isDone = false;

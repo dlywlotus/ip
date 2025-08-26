@@ -1,3 +1,7 @@
+package com.alanthechatbot.task;
+
+import com.alanthechatbot.exceptions.EmptyDescriptionException;
+
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
@@ -7,7 +11,7 @@ public class Event extends Task {
     protected LocalDate from;
     protected LocalDate to;
 
-    public Event(String description, String from, String to) throws EmptyDescriptionError, DateTimeParseException {
+    public Event(String description, String from, String to) throws EmptyDescriptionException, DateTimeParseException {
         super(description);
         this.from = LocalDate.parse(from);
         this.to = LocalDate.parse(to);

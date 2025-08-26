@@ -1,0 +1,85 @@
+package com.alanthechatbot.parse;
+
+import com.alanthechatbot.exceptions.InputParsingException;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+
+public class Parser {
+    private final String inputLine;
+
+    public Parser(String inputLine) {
+        this.inputLine = inputLine;
+    }
+
+    public ParsedInput parse() throws InputParsingException {
+        int i;
+
+        ArrayList<String> inputWords = new ArrayList<>(Arrays.asList(inputLine.split(" ")));
+        String firstWord = inputWords.get(0);
+
+        ArrayList<String> taskDesc = new ArrayList<>();
+        ArrayList<String> doneBy = new ArrayList<>();
+        ArrayList<String> from = new ArrayList<>();
+        ArrayList<String> to = new ArrayList<>();
+        int index = 0;
+
+        switch (firstWord) {
+            case "todo":
+                i = 1;
+                while (i < inputWords.size()) {
+                    taskDesc.add(inputWords.get(i));
+                    i += 1;
+                }
+                break;
+            case "deadline":
+                i = 1;
+                while (i < inputWords.size() && !inputWords.get(i).equals("/by")) {
+                    taskDesc.add(inputWords.get(i));
+                    i += 1;
+                }
+                for (int j = i + 1; j < inputWords.size(); j++) {
+                    doneBy.add(inputWords.get(j));
+                }
+                break;
+            case "event":
+                taskDesc = new ArrayList<>();
+                i = 1;
+                while (i < inputWords.size() && !inputWords.get(i).equals("/from")) {
+                    taskDesc.add(inputWords.get(i));
+                    i += 1;
+                }
+                i += 1;
+                while (i < inputWords.size() && !inputWords.get(i).equals("/to")) {
+                    from.add(inputWords.get(i));
+                    i += 1;
+                }
+                for (int j = i + 1; j < inputWords.size(); j++) {
+                    to.add(inputWords.get(j));
+                }
+                break;
+            case "mark":
+            case "delete":
+                if (inputWords.size() < 2) {
+                    throw new InputParsingException("Please provide the task id!");
+                }
+                try {
+                    index = Integer.parseInt(inputWords.get(1));
+                } catch (NumberFormatException e) {
+                    throw new InputParsingException("The task id should be an integer!");
+                }
+                break;
+            case "list":
+            case "bye":
+                break;
+            default:
+                firstWord = "invalid input";
+        }
+        return new ParsedInput(firstWord,
+                String.join(" ", taskDesc),
+                String.join(" ", doneBy),
+                String.join(" ", from),
+                String.join(" ", to),
+                index);
+    }
+}
