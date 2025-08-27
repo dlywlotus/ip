@@ -17,9 +17,20 @@ import java.io.IOException;
 import java.time.format.DateTimeParseException;
 import java.util.Scanner;
 
+/**
+ * The main class of the application
+ */
 public class AlanTheChatBot {
     public static TaskList taskList = new TaskList();
 
+    /**
+     * Translate text inputs into actions that are carried out.
+     *<p>Reads the inputs via a text file or the command line.
+     * Maps each line of input to a specific action
+     * @param scanner the scanner to read a text file or user input via the command line
+     * @param canWrite whether the actions should be written to storage
+     * @param canPrint whether each event should be printed
+     */
     private static void processInputs(Scanner scanner, boolean canWrite, boolean canPrint) {
         while (scanner.hasNextLine()) {
             try {
@@ -71,6 +82,9 @@ public class AlanTheChatBot {
         }
     }
 
+    /**
+     * Processes the inputs stored in the storage file
+     */
     private static void retrieveTasks() {
         //read from file
         try {
