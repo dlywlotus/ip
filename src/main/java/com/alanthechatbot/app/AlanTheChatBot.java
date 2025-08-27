@@ -40,31 +40,31 @@ public class AlanTheChatBot {
                 String actionType = parsed.getActionType();
 
                 switch (actionType) {
-                    case "todo":
-                        taskList.addTask(new Todo(parsed.getTaskDesc()), canPrint);
-                        break;
-                    case "deadline":
-                        taskList.addTask(new Deadline(parsed.getTaskDesc(),
-                                parsed.getDoneBy()), canPrint);
-                        break;
-                    case "event":
-                        taskList.addTask(new Event(parsed.getTaskDesc(),
-                                parsed.getFrom(), parsed.getTo()), canPrint);
-                        break;
-                    case "mark":
-                        taskList.markTask(parsed.getIndex(), canPrint);
-                        break;
-                    case "delete":
-                        taskList.deleteTask(parsed.getIndex(), canPrint);
-                        break;
-                    case "list":
-                        taskList.printTasks();
-                        break;
-                    case "bye":
-                        System.out.println("Bye. Hope to see you again soon!");
-                        return;
-                    case "invalid input":
-                        throw new InvalidActionTypeException("Invalid input. Please try again.");
+                case "todo":
+                    taskList.addTask(new Todo(parsed.getTaskDesc()), canPrint);
+                    break;
+                case "deadline":
+                    taskList.addTask(new Deadline(parsed.getTaskDesc(),
+                            parsed.getDoneBy()), canPrint);
+                    break;
+                case "event":
+                    taskList.addTask(new Event(parsed.getTaskDesc(),
+                            parsed.getFrom(), parsed.getTo()), canPrint);
+                    break;
+                case "mark":
+                    taskList.markTask(parsed.getIndex(), canPrint);
+                    break;
+                case "delete":
+                    taskList.deleteTask(parsed.getIndex(), canPrint);
+                    break;
+                case "list":
+                    taskList.printTasks();
+                    break;
+                case "bye":
+                    System.out.println("Bye. Hope to see you again soon!");
+                    return;
+                case "invalid input":
+                    throw new InvalidActionTypeException("Invalid input. Please try again.");
                 }
                 if (canWrite && !parsed.getActionType().equals("list") &&
                         !parsed.getActionType().equals("bye")) {
