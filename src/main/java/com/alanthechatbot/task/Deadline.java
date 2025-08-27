@@ -1,11 +1,11 @@
 package com.alanthechatbot.task;
 
-import com.alanthechatbot.exceptions.EmptyDescriptionException;
-
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.time.format.DateTimeParseException;
 import java.util.Locale;
+
+import com.alanthechatbot.exceptions.EmptyDescriptionException;
 
 public class Deadline extends Task {
     protected LocalDate doneBy;
