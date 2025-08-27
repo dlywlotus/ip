@@ -2,17 +2,33 @@ package com.alanthechatbot.task;
 
 import java.util.ArrayList;
 
+/**
+ * A list of the current tasks added by the user.
+ */
 public class TaskList {
     private final ArrayList<Task> taskList = new ArrayList<>();
 
+    /**
+     * Prints the size of the list.
+     */
     private void printListSizeString() {
         System.out.println("Now you have " + taskList.size() + " tasks in the list.");
     }
+
+    /**
+     * Gets the size of the list.
+     * @return the size of the list
+     */
 
     public int size() {
         return taskList.size();
     }
 
+    /**
+     * Adds the given task to the task list.
+     * @param task the task to be added
+     * @param canPrint whether to print a log of the task addition event
+     */
     public void addTask(Task task, boolean canPrint) {
         taskList.add(task);
         if (canPrint) {
@@ -22,6 +38,12 @@ public class TaskList {
         }
     }
 
+    /**
+     * Deletes the task specified by the taskId.
+     * @param taskId the id of the task to delete
+     * @param canPrint whether to print a log of the task deletion event
+     * @throws IllegalArgumentException if the task id is out of bounds
+     */
     public void deleteTask(int taskId, boolean canPrint) {
         if (taskId > taskList.size() || taskId < 1) {
             throw new IllegalArgumentException("The task id is invalid!");
@@ -34,6 +56,12 @@ public class TaskList {
         }
     }
 
+    /**
+     * Marks the task specified by the taskId as completed.
+     * @param taskId the id of the task to mark completed
+     * @param canPrint whether to print a log of the task marking event
+     * @throws IllegalArgumentException if the task id is out of bounds
+     */
     public void markTask(int taskId, boolean canPrint) {
         if (taskId > taskList.size() || taskId < 1) {
             throw new IllegalArgumentException("The task id is invalid!");
@@ -46,6 +74,10 @@ public class TaskList {
         }
     }
 
+
+    /**
+     * Prints the tasks in the task list.
+     */
     public void printTasks() {
         if (taskList.isEmpty()) {
             System.out.println("You have completed all your tasks! :)");
