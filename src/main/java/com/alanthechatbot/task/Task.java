@@ -14,10 +14,15 @@ public class Task {
         this.isDone = false;
     }
 
+    public boolean descriptionContains(String string) {
+        return description.contains(string);
+    }
+
     public String getStatusIcon() {
         return (isDone ? "[X]" : "[ ]"); // mark done task with X
     }
 
+    @Override
     public String toString() {
         return getStatusIcon() + " " + description;
     }

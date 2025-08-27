@@ -55,7 +55,33 @@ public class TaskList {
         System.out.println("Here are the tasks in your list:");
         for (int i = 0; i < taskList.size(); i++) {
             Task task = taskList.get(i);
-            System.out.printf("  %d.%s\n", i + 1, task.toString());
+            System.out.printf("  %d.%s\n", i + 1, task);
         }
     }
+
+    /**
+     * Searches the task list for tasks whose description contains the given string and
+     * prints all occurrences of such tasks.
+     *
+     * @param keyword the string to match
+     */
+    public void findAll(String keyword) {
+        ArrayList<Task> matches = new ArrayList<>();
+        for (Task task : taskList) {
+            if (task.descriptionContains(keyword)) {
+                matches.add(task);
+            }
+        }
+
+        if (matches.isEmpty()) {
+            System.out.println("There are no matches in your list.");
+        } else {
+            System.out.println("Here are the matching tasks in your list:");
+            for (int i = 0; i < matches.size(); i++) {
+                Task match = matches.get(i);
+                System.out.printf("  %d.%s\n", i + 1, match);
+            }
+        }
+    }
+
 }

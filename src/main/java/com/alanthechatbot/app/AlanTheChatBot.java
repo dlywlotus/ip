@@ -1,5 +1,10 @@
 package com.alanthechatbot.app;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.time.format.DateTimeParseException;
+import java.util.Scanner;
+
 import com.alanthechatbot.exceptions.EmptyDescriptionException;
 import com.alanthechatbot.exceptions.InputParsingException;
 import com.alanthechatbot.exceptions.InvalidActionTypeException;
@@ -11,11 +16,6 @@ import com.alanthechatbot.task.Event;
 import com.alanthechatbot.task.TaskList;
 import com.alanthechatbot.task.Todo;
 import com.alanthechatbot.utils.PrintUtils;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.time.format.DateTimeParseException;
-import java.util.Scanner;
 
 public class AlanTheChatBot {
     public static TaskList taskList = new TaskList();
@@ -29,34 +29,38 @@ public class AlanTheChatBot {
                 String actionType = parsed.getActionType();
 
                 switch (actionType) {
-                    case "todo":
-                        taskList.addTask(new Todo(parsed.getTaskDesc()), canPrint);
-                        break;
-                    case "deadline":
-                        taskList.addTask(new Deadline(parsed.getTaskDesc(),
-                                parsed.getDoneBy()), canPrint);
-                        break;
-                    case "event":
-                        taskList.addTask(new Event(parsed.getTaskDesc(),
-                                parsed.getFrom(), parsed.getTo()), canPrint);
-                        break;
-                    case "mark":
-                        taskList.markTask(parsed.getIndex(), canPrint);
-                        break;
-                    case "delete":
-                        taskList.deleteTask(parsed.getIndex(), canPrint);
-                        break;
-                    case "list":
-                        taskList.printTasks();
-                        break;
-                    case "bye":
-                        System.out.println("Bye. Hope to see you again soon!");
-                        return;
-                    case "invalid input":
-                        throw new InvalidActionTypeException("Invalid input. Please try again.");
+                case "todo":
+                    taskList.addTask(new Todo(parsed.getTaskDesc()), canPrint);
+                    break;
+                case "deadline":
+                    taskList.addTask(new Deadline(parsed.getTaskDesc(),
+                            parsed.getDoneBy()), canPrint);
+                    break;
+                case "event":
+                    taskList.addTask(new Event(parsed.getTaskDesc(),
+                            parsed.getFrom(), parsed.getTo()), canPrint);
+                    break;
+                case "mark":
+                    taskList.markTask(parsed.getIndex(), canPrint);
+                    break;
+                case "delete":
+                    taskList.deleteTask(parsed.getIndex(), canPrint);
+                    break;
+                case "find":
+                    taskList.findAll(parsed.getTaskDesc());
+                    break;
+                case "list":
+                    taskList.printTasks();
+                    break;
+                case "bye":
+                    System.out.println("Bye. Hope to see you again soon!");
+                    return;
+                case "invalid input":
+                    throw new InvalidActionTypeException("Invalid input. Please try again.");
                 }
                 if (canWrite && !parsed.getActionType().equals("list") &&
-                        !parsed.getActionType().equals("bye")) {
+                        !parsed.getActionType().equals("bye") &&
+                        !parsed.getActionType().equals("find")) {
                     Storage.writeToFile(input + "\n");
                 }
             } catch (DateTimeParseException e) {
