@@ -57,6 +57,9 @@ public class AlanTheChatBot {
                 case "delete":
                     taskList.deleteTask(parsed.getIndex(), canPrint);
                     break;
+                case "find":
+                    taskList.findAll(parsed.getTaskDesc());
+                    break;
                 case "list":
                     taskList.printTasks();
                     break;
@@ -67,7 +70,8 @@ public class AlanTheChatBot {
                     throw new InvalidActionTypeException("Invalid input. Please try again.");
                 }
                 if (canWrite && !parsed.getActionType().equals("list") &&
-                        !parsed.getActionType().equals("bye")) {
+                        !parsed.getActionType().equals("bye") &&
+                        !parsed.getActionType().equals("find")) {
                     Storage.writeToFile(input + "\n");
                 }
             } catch (DateTimeParseException e) {

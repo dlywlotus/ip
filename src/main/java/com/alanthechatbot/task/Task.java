@@ -18,10 +18,15 @@ public class Task {
      * Retrieves the completed status icon of the task
      * @return the completed status of an icon
      */
+    public boolean descriptionContains(String string) {
+        return description.contains(string);
+    }
+
     public String getStatusIcon() {
         return (isDone ? "[X]" : "[ ]"); // mark done task with X
     }
 
+    @Override
     public String toString() {
         return getStatusIcon() + " " + description;
     }

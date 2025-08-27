@@ -78,6 +78,12 @@ public class Parser {
                 throw new InputParsingException("The task id should be an integer!");
             }
             break;
+        case "find":
+            if (inputWords.size() < 2) {
+                throw new InputParsingException("Please provide the keyword!");
+            }
+            taskDesc.add(inputWords.get(1));
+            break;
         case "list":
         case "bye":
             break;
