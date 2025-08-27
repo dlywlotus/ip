@@ -1,13 +1,13 @@
 package com.alanthechatbot.utils;
 
+/**
+ * A utility class for performing print operations.
+ */
 public class PrintUtils {
     private static final int LINE_BREAK_LENGTH = 45;
 
     private PrintUtils() {
     }
-
-    ;
-
     public static void printLineBreak() {
         for (int i = 0; i < LINE_BREAK_LENGTH; i++) {
             System.out.print('-');
