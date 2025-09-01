@@ -1,13 +1,19 @@
 package com.alanthechatbot.app;
 
+import javafx.animation.PauseTransition;
+import javafx.application.Platform;
+import javafx.util.Duration;
+
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.time.format.DateTimeParseException;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.alanthechatbot.exceptions.EmptyDescriptionException;
 import com.alanthechatbot.exceptions.InputParsingException;
 import com.alanthechatbot.exceptions.InvalidActionTypeException;
+import com.alanthechatbot.exceptions.StorageException;
 import com.alanthechatbot.parse.ParsedInput;
 import com.alanthechatbot.parse.Parser;
 import com.alanthechatbot.storage.Storage;
@@ -21,93 +27,74 @@ import com.alanthechatbot.utils.PrintUtils;
  * The main class of the application
  */
 public class AlanTheChatBot {
-    public static TaskList taskList = new TaskList();
+    private final TaskList  taskList = new TaskList();
 
     /**
-     * Translate text inputs into actions that are carried out.
-     *<p>Reads the inputs via a text file or the command line.
-     * Maps each line of input to a specific action
-     * @param scanner the scanner to read a text file or user input via the command line
-     * @param canWrite whether the actions should be written to storage
-     * @param canPrint whether each event should be printed
+     * Runs the parsed action
+     * @param parsed the result of parsing an input
+     * @return the status message
      */
-    private static void processInputs(Scanner scanner, boolean canWrite, boolean canPrint) {
-        while (scanner.hasNextLine()) {
-            try {
+    public String runParsedInput(ParsedInput parsed) {
+        try {
+            String actionType = parsed.getActionType();
+            String message = "";
+
+            switch (actionType) {
+            case "todo":
+                message = taskList.addTask(new Todo(parsed.getTaskDesc()));
+                break;
+            case "deadline":
+                message = taskList.addTask(new Deadline(parsed.getTaskDesc(),
+                        parsed.getDoneBy()));
+                break;
+            case "event":
+                message = taskList.addTask(new Event(parsed.getTaskDesc(),
+                        parsed.getFrom(), parsed.getTo()));
+                break;
+            case "mark":
+                message = taskList.markTask(parsed.getIndex());
+                break;
+            case "delete":
+                message = taskList.deleteTask(parsed.getIndex());
+                break;
+            case "find":
+                message = taskList.findAll(parsed.getTaskDesc());
+                break;
+            case "list":
+                message = taskList.printTasks();
+                break;
+            case "bye":
+                message = "Bye. Hope to see you again soon!";
+                PauseTransition delay = new PauseTransition(Duration.seconds(.75));
+                delay.setOnFinished(event -> Platform.exit()); // exit after delay
+                delay.play();
+                break;
+            case "invalid input":
+                return "Invalid input. Please try again!";
+            }
+            return message;
+        } catch (DateTimeParseException e) {
+            return "Please follow the format YYYY-MM-DD for dates!";
+        } catch (EmptyDescriptionException e) {
+            return "Task description cannot be empty!";
+        }
+    }
+
+    /**
+     * Replay the actions stored in storage
+     */
+    public void replayStoredActions() throws StorageException {
+        try {
+            Scanner scanner = new Scanner(Storage.getFile());
+            while (scanner.hasNextLine()) {
                 String input = scanner.nextLine();
-                Parser inputParser = new Parser(input);
-                ParsedInput parsed = inputParser.parse();
-                String actionType = parsed.getActionType();
-
-                switch (actionType) {
-                case "todo":
-                    taskList.addTask(new Todo(parsed.getTaskDesc()), canPrint);
-                    break;
-                case "deadline":
-                    taskList.addTask(new Deadline(parsed.getTaskDesc(),
-                            parsed.getDoneBy()), canPrint);
-                    break;
-                case "event":
-                    taskList.addTask(new Event(parsed.getTaskDesc(),
-                            parsed.getFrom(), parsed.getTo()), canPrint);
-                    break;
-                case "mark":
-                    taskList.markTask(parsed.getIndex(), canPrint);
-                    break;
-                case "delete":
-                    taskList.deleteTask(parsed.getIndex(), canPrint);
-                    break;
-                case "find":
-                    taskList.findAll(parsed.getTaskDesc());
-                    break;
-                case "list":
-                    taskList.printTasks();
-                    break;
-                case "bye":
-                    System.out.println("Bye. Hope to see you again soon!");
-                    return;
-                case "invalid input":
-                    throw new InvalidActionTypeException("Invalid input. Please try again.");
-                }
-                if (canWrite && !parsed.getActionType().equals("list") &&
-                        !parsed.getActionType().equals("bye") &&
-                        !parsed.getActionType().equals("find")) {
-                    Storage.writeToFile(input + "\n");
-                }
-            } catch (DateTimeParseException e) {
-                System.out.println("Please follow the format YYYY-MM-DD for dates!");
-            } catch (EmptyDescriptionException | InvalidActionTypeException
-                     | InputParsingException e) {
-                System.out.println(e.getMessage());
+                Parser parser = new Parser(input);
+                runParsedInput(parser.parse());
             }
-            if (canPrint) {
-                PrintUtils.printLineBreak();
-            }
-        }
-    }
-
-    /**
-     * Processes the inputs stored in the storage file
-     */
-    private static void retrieveTasks() {
-        //read from file
-        try {
-            Scanner fileScanner = new Scanner(Storage.getFile());
-            processInputs(fileScanner, false, false);
         } catch (FileNotFoundException e) {
-            System.out.println("Storage has not been initialized!");
-        }
-    }
-
-    public static void main(String[] args) {
-        try {
-            Scanner scanner = new Scanner(System.in);
-            PrintUtils.printIntro();
-            Storage.init();
-            retrieveTasks();
-            processInputs(scanner, true, true);
-        } catch (IOException e) {
-            System.out.println(e.getMessage());
+            throw new StorageException("Storage has not been initialized!");
+        } catch (InputParsingException e) {
+            throw new StorageException("Error parsing storage!");
         }
     }
 }
