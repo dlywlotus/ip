@@ -11,8 +11,8 @@ public class TaskList {
     /**
      * Prints the size of the list.
      */
-    private void printListSizeString() {
-        System.out.println("Now you have " + taskList.size() + " tasks in the list.");
+    private String getListSizeString() {
+        return "Now you have " + taskList.size() + " tasks in the list.";
     }
 
     /**
@@ -27,68 +27,59 @@ public class TaskList {
     /**
      * Adds the given task to the task list.
      * @param task the task to be added
-     * @param canPrint whether to print a log of the task addition event
      */
-    public void addTask(Task task, boolean canPrint) {
+    public String addTask(Task task) {
         taskList.add(task);
-        if (canPrint) {
-            System.out.println("Got it. I've added this task:");
-            System.out.println("  " + task.toString());
-            printListSizeString();
-        }
+        return "Got it. I've added this task:\n"
+                + "  " + task.toString() + "\n" +
+                getListSizeString();
     }
 
     /**
      * Deletes the task specified by the taskId.
      * @param taskId the id of the task to delete
-     * @param canPrint whether to print a log of the task deletion event
      * @throws IllegalArgumentException if the task id is out of bounds
      */
-    public void deleteTask(int taskId, boolean canPrint) {
+    public String deleteTask(int taskId) {
         if (taskId > taskList.size() || taskId < 1) {
-            throw new IllegalArgumentException("The task id is invalid!");
+            return "The task id is invalid!";
         }
         Task task = taskList.remove(taskId - 1);
-        if (canPrint) {
-            System.out.println("Noted. I've removed this task:");
-            System.out.println("  " + task.toString());
-            printListSizeString();
-        }
+            return "Noted. I've removed this task:\n" +
+                    "  " + task.toString() + "\n" +
+                    getListSizeString();
     }
 
     /**
      * Marks the task specified by the taskId as completed.
      * @param taskId the id of the task to mark completed
-     * @param canPrint whether to print a log of the task marking event
      * @throws IllegalArgumentException if the task id is out of bounds
      */
-    public void markTask(int taskId, boolean canPrint) {
+    public String markTask(int taskId)  {
         if (taskId > taskList.size() || taskId < 1) {
-            throw new IllegalArgumentException("The task id is invalid!");
+            return "The task id is invalid!";
         }
         Task task = taskList.get(taskId - 1);
         task.isDone = true;
-        if (canPrint) {
-            System.out.println("Nice! I've marked this task as done:");
-            System.out.printf("  %s\n", task);
-        }
+        return "Nice! I've marked this task as done:\n" +
+                "  " + task;
     }
 
 
     /**
      * Prints the tasks in the task list.
      */
-    public void printTasks() {
+    public String printTasks() {
         if (taskList.isEmpty()) {
-            System.out.println("You have completed all your tasks! :)");
-            return;
+            return "You have completed all your tasks! :)";
         }
-
-        System.out.println("Here are the tasks in your list:");
+        StringBuilder res = new StringBuilder("Here are the tasks in your list:\n");
         for (int i = 0; i < taskList.size(); i++) {
             Task task = taskList.get(i);
-            System.out.printf("  %d.%s\n", i + 1, task);
+            res.append("  ").append(i + 1).append(". ").append(task.toString()).append("\n");
         }
+
+        return res.toString();
     }
 
     /**
@@ -97,7 +88,7 @@ public class TaskList {
      *
      * @param keyword the string to match
      */
-    public void findAll(String keyword) {
+    public String findAll(String keyword) {
         ArrayList<Task> matches = new ArrayList<>();
         for (Task task : taskList) {
             if (task.descriptionContains(keyword)) {
@@ -106,14 +97,14 @@ public class TaskList {
         }
 
         if (matches.isEmpty()) {
-            System.out.println("There are no matches in your list.");
+            return "There are no matches in your list.";
         } else {
-            System.out.println("Here are the matching tasks in your list:");
+            StringBuilder res = new StringBuilder("Here are the matching tasks in your list:\n");
             for (int i = 0; i < matches.size(); i++) {
                 Task match = matches.get(i);
-                System.out.printf("  %d.%s\n", i + 1, match);
+                res.append("  ").append(i + 1).append(". ").append(match.toString()).append('\n');
             }
+            return res.toString();
         }
     }
-
 }
