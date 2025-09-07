@@ -1,9 +1,9 @@
 package com.alanthechatbot.parse;
 
-import com.alanthechatbot.exceptions.InputParsingException;
-
 import java.util.ArrayList;
 import java.util.Arrays;
+
+import com.alanthechatbot.exceptions.InputParsingException;
 
 /**
  * A class to translate the user's inputs into actions to be carried out
@@ -12,13 +12,16 @@ public class Parser {
     private final String inputLine;
 
     public Parser(String inputLine) {
+        assert inputLine.isEmpty() : "The input passed to parser should not be empty!";
         this.inputLine = inputLine;
+
     }
 
     /**
      * Parses the user's input into a ParsedInput.
-     * @throws InputParsingException if the task id is missing or is not an integer
+     *
      * @return the parsed input
+     * @throws InputParsingException if the task id is missing or is not an integer
      * @see com.alanthechatbot.parse.ParsedInput
      */
     public ParsedInput parse() throws InputParsingException {
