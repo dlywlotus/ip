@@ -17,6 +17,7 @@ public class TaskList {
 
     /**
      * Gets the size of the list.
+     *
      * @return the size of the list
      */
 
@@ -26,6 +27,7 @@ public class TaskList {
 
     /**
      * Adds the given task to the task list.
+     *
      * @param task the task to be added
      */
     public String addTask(Task task) {
@@ -37,25 +39,27 @@ public class TaskList {
 
     /**
      * Deletes the task specified by the taskId.
+     *
      * @param taskId the id of the task to delete
      * @throws IllegalArgumentException if the task id is out of bounds
      */
-    public String deleteTask(int taskId) {
+    public String deleteTaskWithId(int taskId) {
         if (taskId > taskList.size() || taskId < 1) {
             return "The task id is invalid!";
         }
         Task task = taskList.remove(taskId - 1);
-            return "Noted. I've removed this task:\n" +
-                    "  " + task.toString() + "\n" +
-                    getListSizeString();
+        return "Noted. I've removed this task:\n" +
+                "  " + task.toString() + "\n" +
+                getListSizeString();
     }
 
     /**
      * Marks the task specified by the taskId as completed.
+     *
      * @param taskId the id of the task to mark completed
      * @throws IllegalArgumentException if the task id is out of bounds
      */
-    public String markTask(int taskId)  {
+    public String markTaskWithId(int taskId) {
         if (taskId > taskList.size() || taskId < 1) {
             return "The task id is invalid!";
         }
@@ -88,7 +92,7 @@ public class TaskList {
      *
      * @param keyword the string to match
      */
-    public String findAll(String keyword) {
+    public String findTaskWithKeyword(String keyword) {
         ArrayList<Task> matches = new ArrayList<>();
         for (Task task : taskList) {
             if (task.descriptionContains(keyword)) {
