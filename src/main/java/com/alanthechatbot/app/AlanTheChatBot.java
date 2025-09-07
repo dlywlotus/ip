@@ -5,14 +5,11 @@ import javafx.application.Platform;
 import javafx.util.Duration;
 
 import java.io.FileNotFoundException;
-import java.io.IOException;
 import java.time.format.DateTimeParseException;
-import java.util.ArrayList;
 import java.util.Scanner;
 
 import com.alanthechatbot.exceptions.EmptyDescriptionException;
 import com.alanthechatbot.exceptions.InputParsingException;
-import com.alanthechatbot.exceptions.InvalidActionTypeException;
 import com.alanthechatbot.exceptions.StorageException;
 import com.alanthechatbot.parse.ParsedInput;
 import com.alanthechatbot.parse.Parser;
@@ -21,21 +18,16 @@ import com.alanthechatbot.task.Deadline;
 import com.alanthechatbot.task.Event;
 import com.alanthechatbot.task.TaskList;
 import com.alanthechatbot.task.Todo;
-import com.alanthechatbot.utils.PrintUtils;
-
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.time.format.DateTimeParseException;
-import java.util.Scanner;
 
 /**
  * The main class of the application
  */
 public class AlanTheChatBot {
-    private final TaskList  taskList = new TaskList();
+    private final TaskList taskList = new TaskList();
 
     /**
      * Runs the parsed action
+     *
      * @param parsed the result of parsing an input
      * @return the status message
      */
@@ -57,13 +49,13 @@ public class AlanTheChatBot {
                         parsed.getFrom(), parsed.getTo()));
                 break;
             case "mark":
-                message = taskList.markTask(parsed.getIndex());
+                message = taskList.markTaskWithId(parsed.getIndex());
                 break;
             case "delete":
-                message = taskList.deleteTask(parsed.getIndex());
+                message = taskList.deleteTaskWithId(parsed.getIndex());
                 break;
             case "find":
-                message = taskList.findAll(parsed.getTaskDesc());
+                message = taskList.findTaskWithKeyword(parsed.getTaskDesc());
                 break;
             case "list":
                 message = taskList.printTasks();
