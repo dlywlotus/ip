@@ -1,0 +1,538 @@
+[33mcommit 0fee769605a36f4b8ed3cce89926bd031900c7a2[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Merge: b8f0816 995dabc
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Sun Sep 7 15:03:14 2025 +0800
+
+    Merge branch 'master' of https://github.com/dlywlotus/ip
+
+[33mcommit b8f081696f4968d8de98e6d3686759515647d492[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Sun Sep 7 15:02:38 2025 +0800
+
+    mend
+    
+    Merge branch branch-Level-9
+    
+    Added the level 9 task requirements
+
+[33mcommit 995dabc61a75e0e2cbf3a08131a681dcd77e644c[m[33m ([m[1;33mtag: [m[1;33mLevel-10[m[33m, [m[1;33mtag: [m[1;33mA-Varargs[m[33m, [m[1;33mtag: [m[1;33mA-CheckStyle[m[33m)[m
+Merge: 5dda1d2 679657b
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Mon Sep 1 21:34:26 2025 +0800
+
+    Merge branch 'branch-Level-10'
+
+[33mcommit 679657b7a61a3f8a5e62864cefe85a7234f4c10a[m[33m ([m[1;31morigin/branch-Level-10[m[33m, [m[1;32mbranch-Level-10[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Mon Sep 1 21:33:52 2025 +0800
+
+    Add Gui
+
+[33mcommit 5dda1d2ca4e69266360194e3b9b160adc09b5940[m[33m ([m[1;33mtag: [m[1;33mLevel-9[m[33m)[m
+Merge: 70590f5 9f5c77a
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Wed Aug 27 15:45:49 2025 +0800
+
+    Merge branch 'branch-Level-9'
+
+[33mcommit 70590f51152c0681f7332597270b47f527cc4890[m[33m ([m[1;33mtag: [m[1;33mA-CodingStandard[m[33m)[m
+Merge: 5696770 3e9a49d
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Wed Aug 27 15:39:54 2025 +0800
+
+    Merge branch 'branch-A-CodingStandard'
+
+[33mcommit 3e9a49d712ff7cd1a4f5ab76caf51e74396b23d0[m[33m ([m[1;31morigin/branch-A-CodingStandard[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Wed Aug 27 15:34:18 2025 +0800
+
+    Reformat the rest of the app to comply with coding standard style
+
+[33mcommit 56967709160855a3a25800725a6b33425aef26df[m[33m ([m[1;33mtag: [m[1;33mA-JavaDoc[m[33m)[m
+Merge: 2f5160f 9092ccc
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Wed Aug 27 15:17:10 2025 +0800
+
+    Merge branch 'branch-A-JavaDoc'
+
+[33mcommit 9f5c77a97185dcaeea06b7a5d18289ddb3b4efae[m[33m ([m[1;31morigin/branch-Level-9[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Wed Aug 27 15:16:35 2025 +0800
+
+    Add keyword search for tasks in the TaskList
+
+[33mcommit b1c989f0363564e776b39fa1205ba6154f8c70c2[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Wed Aug 27 14:52:58 2025 +0800
+
+    Tweak code to comply with coding standdard
+
+[33mcommit 9092ccc532992d5ecc8a9a21a289c265332cf1ff[m[33m ([m[1;31morigin/branch-A-JavaDoc[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Wed Aug 27 14:31:21 2025 +0800
+
+    Create JavaDocs for important classes and methods
+
+[33mcommit 2f5160fcac006514e303ff5ff5f0d53a7fed8139[m[33m ([m[1;33mtag: [m[1;33mA-JUnit[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 22:16:44 2025 +0800
+
+    Add JUnit tests
+
+[33mcommit 4ce33edb5c067b6851d0bd60331542762e5251d9[m[33m ([m[1;33mtag: [m[1;33mA-Jar[m[33m, [m[1;33mtag: [m[1;33mA-Gradle[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 20:24:38 2025 +0800
+
+    configure gradle
+
+[33mcommit 6c80de9d93cb296ee234e468c83def4e1426de88[m
+Merge: bee561d 81a9c53
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 19:40:12 2025 +0800
+
+    Merge remote-tracking branch 'origin/add-gradle-support'
+
+[33mcommit bee561dd17c1c90e1e49955a7052b994f3bc9605[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 19:39:45 2025 +0800
+
+    create storage package
+
+[33mcommit e021389d07a9da61e0b41f4bc80e0eaf67184150[m[33m ([m[1;33mtag: [m[1;33mA-Packages[m[33m, [m[1;33mtag: [m[1;33mA-MoreOOP[m[33m)[m
+Merge: 30828c4 23ab8b7
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 18:27:22 2025 +0800
+
+    Merge branch 'branch-A-MoreOOP'
+
+[33mcommit 23ab8b7c4190c455f5d12ca1520ad1b49a3c0722[m[33m ([m[1;31morigin/branch-A-MoreOOP[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 18:26:07 2025 +0800
+
+    abstract storage into its own Class
+
+[33mcommit 0e86e6839be8f95184666cf03c5de5b4b9ca59a0[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 18:02:33 2025 +0800
+
+    abstract parsing functionality into Parser class
+
+[33mcommit e3f9c8b9fc9ef1d21c8c23fc246ef9b64e4fe7fb[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 10:49:21 2025 +0800
+
+    move utils to utils package
+
+[33mcommit 30828c481335dff37a4fa3963f0d3676218e42c5[m[33m ([m[1;33mtag: [m[1;33mLevel-8[m[33m)[m
+Merge: 56c50cd 852c438
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 10:21:13 2025 +0800
+
+    Merge branch 'branch-Level-8'
+
+[33mcommit 852c43804a642176c5a4c446105d2c22d421c7b9[m[33m ([m[1;31morigin/branch-Level-8[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 10:20:54 2025 +0800
+
+    add formatting of dates
+
+[33mcommit 56c50cd682f9e780c5091852f676f1dff8171d20[m[33m ([m[1;33mtag: [m[1;33mLevel-7[m[33m)[m
+Merge: c09e163 7236c2a
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 09:42:38 2025 +0800
+
+    Merge branch 'branch-Level-7'
+
+[33mcommit 7236c2a3e0ca084fa5bcd75746bd1f579e015843[m[33m ([m[1;31morigin/branch-Level-7[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Tue Aug 26 09:38:20 2025 +0800
+
+    store actions in a text file to be replay on app load
+
+[33mcommit c09e1630840c15ffb0121bde8c88cb854e3e6f9c[m[33m ([m[1;33mtag: [m[1;33mA-Enums[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Fri Aug 22 16:52:12 2025 +0800
+
+    finish A-Enums
+
+[33mcommit d51a93c883bdbcdad03f5cfc30161d2d28e9ef60[m[33m ([m[1;33mtag: [m[1;33mLevel-6[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Fri Aug 22 16:48:40 2025 +0800
+
+    finish Level-6
+
+[33mcommit 8de2135cb15a4e63ba229755d038bfffca2585bd[m[33m ([m[1;33mtag: [m[1;33mLevel-5[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Fri Aug 22 16:25:35 2025 +0800
+
+    finish Level-5
+
+[33mcommit db959d600bc74dd10924bc5d622a166292c8dc83[m[33m ([m[1;33mtag: [m[1;33mLevel-4[m[33m, [m[1;33mtag: [m[1;33mA-TextUiTesting[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Fri Aug 22 14:05:55 2025 +0800
+
+    finsh Level-4
+
+[33mcommit 6474c3287bb4a86d5aaf59b7e4b2feb8bcfced9b[m[33m ([m[1;33mtag: [m[1;33mLevel-3[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Fri Aug 22 12:49:44 2025 +0800
+
+    finish Level-3
+
+[33mcommit 22ef7787d43faa2adfed026791945501033745d4[m[33m ([m[1;33mtag: [m[1;33mLevel-2[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Thu Aug 21 17:21:58 2025 +0800
+
+    finish Level-2
+
+[33mcommit ce278fbcbffbf3dcab0a385100dfc764439bcd56[m[33m ([m[1;33mtag: [m[1;33mLevel-1[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Thu Aug 21 17:00:19 2025 +0800
+
+    finish Level-1
+
+[33mcommit e5d2bf3bfde1cebf26b1c8940a0b75a7f3d4c524[m[33m ([m[1;33mtag: [m[1;33mLevel-0[m[33m)[m
+Author: dlywlotus <dylanlowywgit@gmail.com>
+Date:   Thu Aug 21 16:31:22 2025 +0800
+
+    finish level 0
+
+[33mcommit 33ea7802dbb84985b5cbd2a8c7d78d92826e21c3[m
+Author: damithc <1673303+damithc@users.noreply.github.com>
+Date:   Sat Jan 4 21:45:23 2025 +0800
+
+    README: Use correct item number in list
+
+[33mcommit ad9696cea37a0b97209fe0282bd95eb764e44946[m
+Author: damithc <1673303+damithc@users.noreply.github.com>
+Date:   Sat Jan 4 21:44:28 2025 +0800
+
+    README: Ask to keep source folder structure
+
+[33mcommit 81a9c537afe8492675eb253968939364d65db091[m[33m ([m[1;31morigin/add-gradle-support[m[33m)[m
+Author: aureliony <39163684+aureliony@users.noreply.github.com>
+Date:   Tue Jul 16 23:35:06 2024 +0800
+
+    build.gradle: Prevent generating a second JAR file
+    
+    In build.gradle, the dependencies on distZip and/or distTar causes
+    the shadowJar task to generate a second JAR file for which the
+    mainClass.set("seedu.duke.Duke") does not take effect.
+    Hence, this additional JAR file cannot be run.
+    For this product, there is no need to generate a second JAR file
+    to begin with.
+    
+    Let's remove this dependency from the build.gradle to prevent the
+    shadowJar task from generating the extra JAR file.
+
+[33mcommit 03523ec89e823ff5457b647df22a4e395641da7a[m
+Author: lzq <li.zhaoqi@dhs.sg>
+Date:   Sat Aug 5 15:24:02 2023 +0800
+
+    Bump gradle and lib version
+
+[33mcommit 68c58c12c1d631736a4b25500248a2956171496f[m
+Author: damithc <damithch@damithch-mbp.comp.nus.edu.sg>
+Date:   Mon May 25 00:58:18 2020 +0800
+
+    Add Gradle support
+
+[33mcommit 173d5b34eb98ac960608ca30d3d1c84c5cda2947[m
+Author: damithc <damithc@github>
+Date:   Thu Jul 11 16:50:14 2024 +0800
+
+    README: Update the JDK version 11 -> 17
+
+[33mcommit 55f9f9ff7635cef71b5ee58aec7c1b4ceaffea49[m
+Author: damithc <damithc@github>
+Date:   Sun Jan 7 18:33:52 2024 +0800
+
+    docs/README.md: Tweak document template
+    
+    Let's tweak the docs/README.md (which is used as the user guide)
+    to fit Duke better. Specifically,
+    
+    1. mention product name in the title
+    2. mention adding a product screenshot and a product intro
+    3. tweak the flow to describe feature-by-feature
+
+[33mcommit 3b83789e9ed75b9498c05ee150c073f6492ec6ff[m
+Author: Sean Leong <70213029+seanleong339@users.noreply.github.com>
+Date:   Thu Dec 29 13:56:26 2022 +0800
+
+    .gitignore: Fix ACTUAL.txt -> ACTUAL.TXT  (#73)
+    
+    text-ui-test/runtest.bat|sh scripts generate a file ACTUAL.TXT.
+    However, .gitignore uses ACTUAL.txt, which means the generated
+    file will not be ignored by Git on non-Windows OS.
+    
+    Let's update .gitignore as ACTUAL.txt -> ACTUAL.TXT
+
+[33mcommit e698798c0df9eb614fc9263cf735a609c94e58ba[m
+Author: Damith C. Rajapakse <damith@gmail.com>
+Date:   Thu Jul 29 20:29:39 2021 +0800
+
+    README: Mention the project language level setting
+
+[33mcommit 7bfb6e7cbdc8444041ecc338d625bac60014a630[m
+Author: damithc <damithc@github>
+Date:   Sat Jul 17 16:49:07 2021 +0800
+
+    README.md: Tweak template text
+    
+    * Let's replace 'Feature 1' with 'Feature-ABC'
+      reason: some students kept the 'Feature 1' in the final UG.
+    * Let's tweak the template for features and usage
+      reasons: to fix grammar, to distinguish between output and outcome
+
+[33mcommit eabcfca4d05e76d33f071483bb1d00cc5bdd6f3c[m
+Author: damithc <>
+Date:   Sun Jan 17 12:25:53 2021 +0800
+
+    README: Update setup instructions to match the latest IDE version
+
+[33mcommit 6001e2eb859ce70a5b8ffad77d18410d28c9a9e5[m
+Author: damithc <>
+Date:   Tue Aug 25 17:23:26 2020 +0800
+
+    Improve runtest.* scripts
+    
+    * Improve the javac command to work for multiple java files.
+    * In runtest.bat, delete ACTUAL.TXT only if it exists.
+
+[33mcommit 87eb8b818ae0e244a172420fdab8c46c45c43e0b[m
+Author: Damith C. Rajapakse <damith@gmail.com>
+Date:   Sat Jul 4 01:45:26 2020 +0800
+
+    README.md: Fix typo of => or
+
+[33mcommit ef3c8cd14cc5d9d0350eb62b06f640aab4119f8c[m
+Author: damithc <damithch@damithch-mbp.comp.nus.edu.sg>
+Date:   Mon May 25 00:03:55 2020 +0800
+
+    Add text-ui-test files
+
+[33mcommit 71d7ea84f3d61821643e505e532051fcc09ec2b1[m
+Author: damithc <damithch@damithch-mbp.comp.nus.edu.sg>
+Date:   Sun May 24 23:34:49 2020 +0800
+
+    Remove generic tutorials
+    
+    Let's remove generic tutorials from this repo as they are not specific
+    to this project tempalte
+
+[33mcommit 1416279436d1c0c7c0c87db5dd9fe75a3c72e5bb[m
+Merge: 6f2ddfa 2697ae1
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Wed Feb 12 15:39:44 2020 +0800
+
+    Merge pull request #41 from jiachen247/patch-2
+    
+    Remove unnecessary override annotation
+
+[33mcommit 2697ae1dd966ac2f3ec34eb8a14819b4fa9e6f70[m
+Author: jiachen <jiachen247@users.noreply.github.com>
+Date:   Tue Feb 11 15:13:03 2020 +0800
+
+    Remove unnecessary override annotation
+    
+    Remove extra '@Override' at the start of the code example.
+
+[33mcommit 6f2ddfaef13a62f650128050d8923eff99761f82[m
+Merge: fae28ab 2ca6b28
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Mon Feb 3 23:29:41 2020 +0800
+
+    Merge pull request #35 from j-lum/xplatformjfx
+    
+    JavaFX tutorial: Support cross-platform JARs
+
+[33mcommit 2ca6b28c8d2ebebfe001e1a618a5d5af4094e088[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Fri Sep 20 16:05:59 2019 +0800
+
+    JavaFX tutorial: Support cross-platform JARs
+    
+    The OpenJFX plugin expects applications to be modular and bundled
+    with jlink, resulting in fat jars that are not cross-platform. Let's
+    manually include the required dependencies so that shadow can package
+    them properly.
+
+[33mcommit fae28ab89ea8846e56f2e6df33fbd6f9dd7fbea0[m
+Merge: baa18a5 26a5013
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Sat Aug 31 16:43:08 2019 +0800
+
+    Merge pull request #14 from j-lum/fxml-indent
+    
+    Change indentation in FXML samples to match AB-3
+
+[33mcommit 26a5013d00ef2201cd6433f308f53dc52e277b76[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Sat Aug 31 16:40:20 2019 +0800
+
+    Change indentation in FXML samples to match AB-3
+
+[33mcommit baa18a5b60aee205f3593787bac4dc4a98a7687c[m
+Merge: 999fa98 5df56a8
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Fri Aug 16 16:59:58 2019 +0800
+
+    Merge pull request #8 from j-lum/tutorial-fix
+    
+    Remove references to DukeStub
+
+[33mcommit 5df56a8908679dfc9efc6fcca655b1f9de85d51e[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Fri Aug 16 16:58:43 2019 +0800
+
+    Remove references to DukeStub
+
+[33mcommit 999fa98979ab5be8233b7838451650d8345bb520[m
+Merge: d2ffa00 8d6d6f4
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Thu Aug 15 15:18:12 2019 +0800
+
+    Merge pull request #7 from j-lum/tutorial-fix
+    
+    Address issues #5 and #6
+
+[33mcommit 8d6d6f4b95dd028ee97ba3df4d36b38ffc92d343[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Thu Aug 15 14:05:46 2019 +0800
+
+    Add images to JavaFX tutorial 3
+
+[33mcommit b6df1a32827a0d318ba241a10bfded88101daca3[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Thu Aug 15 13:59:56 2019 +0800
+
+    Fix typo referring to `HelloWorld`
+
+[33mcommit d2ffa00dbe45016b1c087a9a26e2d5be1d595ee4[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Wed Aug 14 15:35:46 2019 +0800
+
+    Update Gradle tutorial to reflect new checkstyle config
+
+[33mcommit f20d61019a2ea5ce166440b47e9a37a8bd373bb0[m
+Merge: 5c47c23 bad66fc
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Wed Aug 14 15:30:37 2019 +0800
+
+    Merge pull request #3 from j-lum/inline-javafx-tutorials
+    
+    Inline JavaFX tutorials
+
+[33mcommit bad66fc459bc2173e26be31598e04c4315df7933[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Mon Aug 12 14:24:27 2019 +0800
+
+    Adapt JavaFX tutorial for Duke
+    
+    Rather than to have distinct tutorials building up to a Duke-like
+    application, let's merge the tutorials into Duke's tutorials
+    to enhance cohesiveness in the course material.
+    
+    We also merge the gradle/gradleless tutorials into one by providing a
+    universal entry point to JavaFX in the style of AddressBook
+    applications.
+    
+    Fix header levels in JavaFX Tutorial 1.
+    
+    Change code samples to use Duke.
+    
+    Add hints on required import statements.
+    
+    Add location hints to code snippets to help students find where to copy
+    and paste them.
+    
+    Remove nitpicks to make the development process smoother.
+    
+    Fix usage of `Collections` to `FXCollections`.
+    
+    Replace image for JavaFX tutorial 3.
+    
+    Specify location to place images.
+    
+    Replace a screenshot that referred to the outdated package structure.
+    
+    Remove reference to DukeStub.
+
+[33mcommit 5c47c238cef0369657cea1f3023dcc053aabe733[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Tue Aug 6 20:38:08 2019 +0800
+
+    Specify checkstyle version
+    
+    Not specifying the checkstyle version causes it to fail with a cryptic
+    error.
+
+[33mcommit a2150c17028761c775b44368ede448060a7ce44e[m
+Author: damithc <damith@gmail.com>
+Date:   Tue Aug 6 20:10:10 2019 +0800
+
+    textUiTestingTutorial.md: mention updating java/javac commands
+
+[33mcommit 2d06f90400a17fd0ad95c0a68edf4917d12ee7ff[m
+Author: damithc <damith@gmail.com>
+Date:   Tue Aug 6 19:54:03 2019 +0800
+
+    textUiTestingTutorial.md: add missing <br>
+
+[33mcommit 5c491d3de4822b43f1db4c3bf806f81eae0c64a0[m
+Author: damithc <damith@gmail.com>
+Date:   Tue Aug 6 19:50:20 2019 +0800
+
+    Add a tutorial on text UI testing
+
+[33mcommit 53c04603712fd4132acd73091ffa37e29b7c0e70[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Tue Aug 6 15:15:04 2019 +0800
+
+    Update list of contributors
+
+[33mcommit 21af6a13f93c15964b20eb0ead90ef50ef70a42b[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Tue Aug 6 15:06:11 2019 +0800
+
+    Fix typo in link to checkstyle config files
+
+[33mcommit 8fe8afd9397509e450f821bc1f5524a3519ab488[m
+Author: damithc <damith@gmail.com>
+Date:   Mon Aug 5 19:29:40 2019 +0800
+
+    README: use numbered list for steps
+
+[33mcommit f20bff25cfb935b211b47aa3bcb5e690bbe614c0[m
+Author: damithc <damith@gmail.com>
+Date:   Mon Aug 5 19:26:04 2019 +0800
+
+    Tweak tutorial text
+
+[33mcommit 6a7120cbb6568134aef5d1d35e9596e4862acae4[m
+Author: damithc <damith@gmail.com>
+Date:   Mon Aug 5 19:08:53 2019 +0800
+
+    Move Duke.java out of the package
+
+[33mcommit 6bb6b9f6c525f5343fdc6dd3a43a086a11e9708e[m
+Author: damithc <damith@gmail.com>
+Date:   Mon Aug 5 19:08:08 2019 +0800
+
+    .gitignore: add *.iml
+
+[33mcommit 946f3bb509aa0710d45d820855ea3aa6cf096071[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Mon Jul 29 17:14:46 2019 +0800
+
+    Import base branch for students to start off
+    
+    As student may not have learnt about branching, let's include a copy of
+    the base branch into the main repository.
+
+[33mcommit 245013d3ac98862fe7c5f52fee9a7b5c389fb7ab[m
+Author: Jeffry Lum <22460123+j-lum@users.noreply.github.com>
+Date:   Mon Jul 29 17:14:46 2019 +0800
+
+    Initial commit
