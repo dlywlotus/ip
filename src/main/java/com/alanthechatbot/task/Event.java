@@ -23,6 +23,6 @@ public class Event extends Task {
                 + from.format(DateTimeFormatter.ofPattern("dd MMMM uuuu", Locale.ENGLISH))
                 + " to: "
                 + to.format(DateTimeFormatter.ofPattern("dd MMMM uuuu", Locale.ENGLISH))
-                + ")";
+                + ") " + getTagString();
     }
 }

@@ -34,6 +34,8 @@ public class Parser {
         ArrayList<String> doneBy = new ArrayList<>();
         ArrayList<String> from = new ArrayList<>();
         ArrayList<String> to = new ArrayList<>();
+        String tagName = "";
+
         int index = 0;
 
         switch (firstWord) {
@@ -72,6 +74,7 @@ public class Parser {
             break;
         case "mark":
         case "delete":
+        case "tag":
             if (inputWords.size() < 2) {
                 throw new InputParsingException("Please provide the task id!");
             }
@@ -79,6 +82,12 @@ public class Parser {
                 index = Integer.parseInt(inputWords.get(1));
             } catch (NumberFormatException e) {
                 throw new InputParsingException("The task id should be an integer!");
+            }
+            if (firstWord.equals("tag")) {
+                if (inputWords.size() < 3) {
+                    throw new InputParsingException("Please provide the tag name!");
+                }
+                tagName = inputWords.get(2);
             }
             break;
         case "find":
@@ -88,6 +97,14 @@ public class Parser {
             taskDesc.add(inputWords.get(1));
             break;
         case "list":
+            if (inputWords.size() == 2) {
+                String tag = inputWords.get(1).substring(1);
+                if (tag.isEmpty()) {
+                    throw new InputParsingException("Tag name cannot be empty!");
+                }
+                tagName = tag;
+            }
+            break;
         case "bye":
             break;
         default:
@@ -98,6 +115,6 @@ public class Parser {
                 String.join(" ", doneBy),
                 String.join(" ", from),
                 String.join(" ", to),
-                index);
+                index, tagName);
     }
 }

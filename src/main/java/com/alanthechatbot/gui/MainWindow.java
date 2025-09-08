@@ -8,9 +8,9 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
+import java.util.Objects;
 
 import com.alanthechatbot.app.AlanTheChatBot;
 import com.alanthechatbot.exceptions.InputParsingException;
@@ -32,8 +32,8 @@ public class MainWindow extends AnchorPane {
     private Button sendButton;
 
     private AlanTheChatBot alan;
-    private Image userImage = new Image(this.getClass().getResourceAsStream("/images/user.png"));
-    private Image alanImage = new Image(this.getClass().getResourceAsStream("/images/alan.png"));
+    private final Image userImage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/images/user.png")));
+    private final Image alanImage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/images/alan.png")));
 
     @FXML
     public void initialize() {
@@ -57,7 +57,7 @@ public class MainWindow extends AnchorPane {
             Collections.addAll(actionsToNotSave, "list", "find", "bye", "invalid input");
             ParsedInput parsedInput = new Parser(input).parse();
             response = alan.runParsedInput(parsedInput);
-            if (!actionsToNotSave.contains(parsedInput.getActionType())) {
+            if (!actionsToNotSave.contains(parsedInput.actionType())) {
                 System.out.println("saving");
                 Storage.writeToFile(input + "\n");
             }

@@ -69,6 +69,15 @@ public class TaskList {
                 "  " + task;
     }
 
+    public String tagTaskWithId(int taskId, String tagName) {
+        if (taskId > taskList.size() || taskId < 1) {
+            return "The task id is invalid!";
+        }
+        Task task = taskList.get(taskId - 1);
+        task.tag = tagName;
+        return "Nice! I've tagged this task:\n" +
+                "  " + task;
+    }
 
     /**
      * Prints the tasks in the task list.
@@ -83,6 +92,26 @@ public class TaskList {
             res.append("  ").append(i + 1).append(". ").append(task.toString()).append("\n");
         }
 
+        return res.toString();
+    }
+
+    /**
+     * Prints out all tasks with the given tagName
+     *
+     * @param tagName The name of the tag to match
+     * @return The filtered task list to be printed
+     */
+    public String getTasksByTag(String tagName) {
+        StringBuilder res = new StringBuilder("#" + tagName + " tasks:\n");
+        int count = 1;
+        for (int i = 0; i < taskList.size(); i++) {
+            Task task = taskList.get(i);
+            if (task.tag.equals(tagName)) {
+                res.append("  ").append(count).append(". ").append(task).append("\n");
+                count++;
+            }
+
+        }
         return res.toString();
     }
 
