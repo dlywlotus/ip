@@ -96,6 +96,26 @@ public class TaskList {
     }
 
     /**
+     * Prints out all tasks with the given tagName
+     *
+     * @param tagName The name of the tag to match
+     * @return The filtered task list to be printed
+     */
+    public String getTasksByTag(String tagName) {
+        StringBuilder res = new StringBuilder("#" + tagName + " tasks:\n");
+        int count = 1;
+        for (int i = 0; i < taskList.size(); i++) {
+            Task task = taskList.get(i);
+            if (task.tag.equals(tagName)) {
+                res.append("  ").append(count).append(". ").append(task).append("\n");
+                count++;
+            }
+
+        }
+        return res.toString();
+    }
+
+    /**
      * Searches the task list for tasks whose description contains the given string and
      * prints all occurrences of such tasks.
      *

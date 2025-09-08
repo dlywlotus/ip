@@ -61,7 +61,11 @@ public class AlanTheChatBot {
                 message = taskList.findTaskWithKeyword(parsed.taskDesc());
                 break;
             case "list":
-                message = taskList.printTasks();
+                if (!parsed.tagName().isEmpty()) {
+                    message = taskList.getTasksByTag(parsed.tagName());
+                } else {
+                    message = taskList.printTasks();
+                }
                 break;
             case "bye":
                 message = "Bye. Hope to see you again soon!";

@@ -97,6 +97,14 @@ public class Parser {
             taskDesc.add(inputWords.get(1));
             break;
         case "list":
+            if (inputWords.size() == 2) {
+                String tag = inputWords.get(1).substring(1);
+                if (tag.isEmpty()) {
+                    throw new InputParsingException("Tag name cannot be empty!");
+                }
+                tagName = tag;
+            }
+            break;
         case "bye":
             break;
         default:
