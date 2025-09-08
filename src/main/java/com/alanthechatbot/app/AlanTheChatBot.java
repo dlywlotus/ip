@@ -33,29 +33,32 @@ public class AlanTheChatBot {
      */
     public String runParsedInput(ParsedInput parsed) {
         try {
-            String actionType = parsed.getActionType();
+            String actionType = parsed.actionType();
             String message = "";
 
             switch (actionType) {
             case "todo":
-                message = taskList.addTask(new Todo(parsed.getTaskDesc()));
+                message = taskList.addTask(new Todo(parsed.taskDesc()));
                 break;
             case "deadline":
-                message = taskList.addTask(new Deadline(parsed.getTaskDesc(),
-                        parsed.getDoneBy()));
+                message = taskList.addTask(new Deadline(parsed.taskDesc(),
+                        parsed.doneBy()));
                 break;
             case "event":
-                message = taskList.addTask(new Event(parsed.getTaskDesc(),
-                        parsed.getFrom(), parsed.getTo()));
+                message = taskList.addTask(new Event(parsed.taskDesc(),
+                        parsed.from(), parsed.to()));
                 break;
             case "mark":
-                message = taskList.markTaskWithId(parsed.getIndex());
+                message = taskList.markTaskWithId(parsed.index());
                 break;
             case "delete":
-                message = taskList.deleteTaskWithId(parsed.getIndex());
+                message = taskList.deleteTaskWithId(parsed.index());
+                break;
+            case "tag":
+                message = taskList.tagTaskWithId(parsed.index(), parsed.tagName());
                 break;
             case "find":
-                message = taskList.findTaskWithKeyword(parsed.getTaskDesc());
+                message = taskList.findTaskWithKeyword(parsed.taskDesc());
                 break;
             case "list":
                 message = taskList.printTasks();

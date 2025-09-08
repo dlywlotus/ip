@@ -19,6 +19,6 @@ public class Deadline extends Task {
     public String toString() {
         return "[D]" + super.getStatusIcon() + " " + description + " (by: "
                 + doneBy.format(DateTimeFormatter.ofPattern("dd MMMM uuuu", Locale.ENGLISH))
-                + ") " + getTag();
+                + ") " + getTagString();
     }
 }

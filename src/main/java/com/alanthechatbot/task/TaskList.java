@@ -69,6 +69,15 @@ public class TaskList {
                 "  " + task;
     }
 
+    public String tagTaskWithId(int taskId, String tagName) {
+        if (taskId > taskList.size() || taskId < 1) {
+            return "The task id is invalid!";
+        }
+        Task task = taskList.get(taskId - 1);
+        task.tag = tagName;
+        return "Nice! I've tagged this task:\n" +
+                "  " + task;
+    }
 
     /**
      * Prints the tasks in the task list.

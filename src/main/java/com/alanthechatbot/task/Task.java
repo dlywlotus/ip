@@ -26,16 +26,16 @@ public class Task {
     }
 
     public String getStatusIcon() {
-        return (isDone ? "[X]" : "[ ]"); // mark done task with X
+        return (isDone ? "[X]" : "[  ]"); // mark done task with X
     }
 
-    public String getTag() {
-        return tag.isEmpty() ? "" : "[" + tag + "]";
+    public String getTagString() {
+        return tag.isEmpty() ? "" : "#" + tag;
     }
 
     @Override
     public String toString() {
-        return getStatusIcon() + " " + description + " " + getTag();
+        return getStatusIcon() + " " + description + " " + getTagString();
     }
 
 }
