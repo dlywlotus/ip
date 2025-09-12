@@ -25,6 +25,10 @@ public class Task {
         return description.contains(string);
     }
 
+    /**
+     * Retrieves the completed status icon of the task
+     * @return the completed status of an icon
+     */
     public boolean descriptionContains(String string) {
         return description.contains(string);
     }
