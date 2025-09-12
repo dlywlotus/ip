@@ -25,10 +25,15 @@ public class Task {
         return description.contains(string);
     }
 
+    public boolean descriptionContains(String string) {
+        return description.contains(string);
+    }
+
     public String getStatusIcon() {
         return (isDone ? "[X]" : "[  ]"); // mark done task with X
     }
 
+    @Override
     public String getTagString() {
         return tag.isEmpty() ? "" : "#" + tag;
     }

@@ -1,5 +1,7 @@
 package com.alanthechatbot.parse;
 
+import com.alanthechatbot.exceptions.InputParsingException;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 
