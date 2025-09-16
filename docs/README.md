@@ -1,29 +1,38 @@
-# com.alanthechatbot.app.AlanTheChatBot User Guide
+# Alan
 
-// Update the title above to match the actual product name
+Alan is a chat based todo app to help you stay productive.
 
-// Product screenshot goes here
+## Features
 
-// Product intro goes here
+1. Creating different types of tasks (todo/deadline/event)
+2. Marking tasks as completed
+3. Deleting tasks
+4. Tagging tasks
+5. Listing all tasks
+6. Finding tasks with keyword
+7. Finding tasks with tag
 
-## Adding deadlines
+## User guide
 
-// Describe the action and its outcome.
+For each of the following actions, type their corresponding command into the input field.
 
-// Give examples of usage
+### Creating tasks
 
-Example: `keyword (optional arguments)`
+Regular task: "todo [task description]"  
+Deadline task: "deadline [task description] /by [YYYY-MM-DD]"  
+Event task: "event [task description] /from [YYYY-MM-DD] /to [YYYY-MM-DD]"
 
-// A description of the expected outcome goes here
+### Actions involving task id
 
-```
-expected output
-```
+Deleteing task: "delete [taskid]"  
+Marking task as completed: "mark [task id]"  
+Tagging task: "tag [task id] [tag name]"
 
-## Feature ABC
+### Querying
 
-// Feature details
+Get all tasks: "list"  
+Get all tasks with a certain tag: "list #[tag name]"  
+Find tasks with keyword: "find [keyword]"  
 
-## Feature XYZ
 
-// Feature details
+   
