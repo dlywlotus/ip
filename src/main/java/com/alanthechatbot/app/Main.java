@@ -1,12 +1,12 @@
 package com.alanthechatbot.app;
 
-import java.io.IOException;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+
+import java.io.IOException;
 
 import com.alanthechatbot.exceptions.StorageException;
 import com.alanthechatbot.gui.MainWindow;
@@ -17,7 +17,7 @@ import com.alanthechatbot.storage.Storage;
  */
 public class Main extends Application {
 
-    private AlanTheChatBot alan = new AlanTheChatBot();
+    private final AlanTheChatBot alan = new AlanTheChatBot();
 
     @Override
     public void start(Stage stage) {
@@ -29,6 +29,7 @@ public class Main extends Application {
             fxmlLoader.<MainWindow>getController().setAlan(alan);
             Storage.init();
             alan.replayStoredActions();
+            stage.setTitle("Alan");
             stage.show();
         } catch (IOException | StorageException e) {
             System.out.println(e.getMessage());

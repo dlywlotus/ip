@@ -8,7 +8,6 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Objects;
@@ -35,10 +34,15 @@ public class MainWindow extends AnchorPane {
     private AlanTheChatBot alan;
     private final Image userImage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/images/user.png")));
     private final Image alanImage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/images/alan.png")));
+    private final Image spaceBackgroundImage = new Image(Objects.requireNonNull(this.getClass().getResourceAsStream("/images/bg.jpg")));
+
 
     @FXML
     public void initialize() {
         scrollPane.vvalueProperty().bind(dialogContainer.heightProperty());
+        scrollPane.viewportBoundsProperty().addListener((obs, oldBounds, newBounds) -> {
+            dialogContainer.setMinWidth(newBounds.getWidth());
+        });
     }
 
     public void setAlan(AlanTheChatBot a) {
