@@ -16,28 +16,21 @@ public class Task {
         this.tag = "";
     }
 
+
+    public boolean descriptionContains(String string) {
+        return description.contains(string);
+    }
+
     /**
      * Retrieves the completed status icon of the task
      *
      * @return the completed status of an icon
      */
-    public boolean descriptionContains(String string) {
-        return description.contains(string);
-    }
-
-    /**
-     * Retrieves the completed status icon of the task
-     * @return the completed status of an icon
-     */
-    public boolean descriptionContains(String string) {
-        return description.contains(string);
-    }
-
     public String getStatusIcon() {
         return (isDone ? "[X]" : "[  ]"); // mark done task with X
     }
 
-    @Override
+
     public String getTagString() {
         return tag.isEmpty() ? "" : "#" + tag;
     }
