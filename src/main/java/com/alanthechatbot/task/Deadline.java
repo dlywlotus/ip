@@ -7,6 +7,10 @@ import java.util.Locale;
 
 import com.alanthechatbot.exceptions.EmptyDescriptionException;
 
+/**
+ * An extension of the task class with the addition of a doneBy field
+ * that indicates when the task should be completed by.
+ */
 public class Deadline extends Task {
     protected LocalDate doneBy;
 

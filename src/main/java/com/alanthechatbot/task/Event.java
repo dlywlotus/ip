@@ -7,6 +7,10 @@ import java.util.Locale;
 
 import com.alanthechatbot.exceptions.EmptyDescriptionException;
 
+/**
+ * An extension of the task class that stores a period of time contained
+ * within the from and to fields.
+ */
 public class Event extends Task {
     protected LocalDate from;
     protected LocalDate to;

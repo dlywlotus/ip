@@ -19,6 +19,11 @@ public class Main extends Application {
 
     private final AlanTheChatBot alan = new AlanTheChatBot();
 
+    /**
+     * Initializes the application
+     *
+     * @param stage the stage for the scene to be set
+     */
     @Override
     public void start(Stage stage) {
         try {

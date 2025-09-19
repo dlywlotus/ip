@@ -2,6 +2,11 @@ package com.alanthechatbot.task;
 
 import com.alanthechatbot.exceptions.EmptyDescriptionException;
 
+/**
+ * A class that encapsulates the things that makes up a task i.e.
+ * the task description, the class tag and whether or not the task
+ * has been completed
+ */
 public class Task {
     protected String description;
     protected boolean isDone;
